@@ -4,6 +4,7 @@ import type {
   PullRequestClosedEvent,
   PullRequestOpenedEvent,
   PullRequestReadyForReviewEvent,
+  PullRequestReviewRequestedEvent,
   WorkflowRunCompletedEvent,
 } from '@octokit/webhooks-types'
 
@@ -38,6 +39,15 @@ export const examplePullRequestReadyForReviewEvent: PullRequestReadyForReviewEve
     }
   }
   throw new Error(`no example of PullRequestReadyForReviewEvent`)
+})()
+
+export const examplePullRequestReviewRequestedEvent: PullRequestReviewRequestedEvent = (() => {
+  for (const example of examples) {
+    if ('pull_request' in example && 'action' in example && example.action === 'review_requested') {
+      return example
+    }
+  }
+  throw new Error(`no example of PullRequestReviewRequestedEvent`)
 })()
 
 export const exampleWorkflowRunCompletedEvent: WorkflowRunCompletedEvent = (() => {

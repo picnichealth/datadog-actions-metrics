@@ -5,6 +5,7 @@ import type {
   PullRequestEvent,
   PullRequestOpenedEvent,
   PullRequestReadyForReviewEvent,
+  PullRequestReviewRequestedEvent,
 } from '@octokit/webhooks-types'
 import type { PullRequestFirstCommit } from '../queries/getPullRequest.js'
 
@@ -203,6 +204,33 @@ export const computePullRequestReadyForReviewMetrics = (e: PullRequestReadyForRe
       metric: 'github.actions.pull_request_ready_for_review.deletions',
       type: 'count',
       points: [[t, e.pull_request.deletions]],
+    },
+  ]
+}
+
+export const computePullRequestReviewRequestedMetrics = (e: PullRequestReviewRequestedEvent): v1.Series[] => {
+  const tags = computeCommonTags(e)
+  if ('requested_reviewer' in e) {
+    tags.push(`requested_reviewer:${e.requested_reviewer.login}`)
+  }
+  if ('requested_team' in e) {
+    tags.push(`requested_team:${e.requested_team.name}`)
+  }
+  const t = unixTime(e.pull_request.updated_at)
+  return [
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_review_requested.total',
+      type: 'count',
+      points: [[t, 1]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_review_requested.since_opened_seconds',
+      type: 'gauge',
+      points: [[t, t - unixTime(e.pull_request.created_at)]],
     },
   ]
 }

@@ -58,7 +58,7 @@ Here is an example of screenshot in Datadog.
 You can analyze your development activity such as number of merged pull requests.
 It helps the continuous process improvement of your team.
 
-To collect the metrics when a pull request is opened, ready for review, closed or merged into main:
+To collect the metrics when a pull request is opened, ready for review, review requested, closed or merged into main:
 
 ```yaml
 on:
@@ -66,6 +66,7 @@ on:
     types:
       - opened
       - ready_for_review
+      - review_requested
       - closed
   push:
     branches:
@@ -327,6 +328,31 @@ It has the following tags:
 - `draft` = always `false` (the PR is no longer a draft)
 - `base_ref`
 - `head_ref`
+
+### Pull request (review_requested)
+
+This action sends the following metrics on `review_requested` type.
+
+- `github.actions.pull_request_review_requested.total`
+  - Total review_requested events (count)
+- `github.actions.pull_request_review_requested.since_opened_seconds`
+  - Time from a pull request is opened to a review is requested (gauge)
+
+It has the following tags:
+
+- `repository_owner`
+- `repository_name`
+- `sender`
+- `sender_type` = either `Bot`, `User` or `Organization`
+- `user`
+- `pull_request_number`
+- `draft` = `true` or `false`
+- `base_ref`
+- `head_ref`
+- `requested_reviewer`
+  - Login of the requested reviewer (if a user was requested)
+- `requested_team`
+  - Name of the requested team (if a team was requested)
 
 ### Pull request (closed)
 

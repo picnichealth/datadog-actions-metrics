@@ -597,3 +597,54 @@ exports[`computePullRequestReadyForReviewMetrics 1`] = `
   },
 ]
 `;
+
+exports[`computePullRequestReviewRequestedMetrics 1`] = `
+[
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_review_requested.total",
+    "points": [
+      [
+        1557933633,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+      "requested_reviewer:octocat",
+    ],
+    "type": "count",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_review_requested.since_opened_seconds",
+    "points": [
+      [
+        1557933633,
+        0,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+      "requested_reviewer:octocat",
+    ],
+    "type": "gauge",
+  },
+]
+`;

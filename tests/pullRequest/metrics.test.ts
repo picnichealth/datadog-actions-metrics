@@ -3,11 +3,13 @@ import {
   computePullRequestClosedMetrics,
   computePullRequestOpenedMetrics,
   computePullRequestReadyForReviewMetrics,
+  computePullRequestReviewRequestedMetrics,
 } from '../../src/pullRequest/metrics.js'
 import {
   examplePullRequestClosedEvent,
   examplePullRequestOpenedEvent,
   examplePullRequestReadyForReviewEvent,
+  examplePullRequestReviewRequestedEvent,
 } from '../fixtures.js'
 import { examplePullRequestFirstCommit } from './fixtures/getPullRequest.js'
 
@@ -25,6 +27,11 @@ test('computePullRequestClosedMetrics', () => {
 
 test('computePullRequestReadyForReviewMetrics', () => {
   const series = computePullRequestReadyForReviewMetrics(examplePullRequestReadyForReviewEvent)
+  expect(series).toMatchSnapshot()
+})
+
+test('computePullRequestReviewRequestedMetrics', () => {
+  const series = computePullRequestReviewRequestedMetrics(examplePullRequestReviewRequestedEvent)
   expect(series).toMatchSnapshot()
 })
 
