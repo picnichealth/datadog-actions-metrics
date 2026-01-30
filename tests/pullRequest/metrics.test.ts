@@ -1,6 +1,14 @@
 import { expect, test } from 'vitest'
-import { computePullRequestClosedMetrics, computePullRequestOpenedMetrics } from '../../src/pullRequest/metrics.js'
-import { examplePullRequestClosedEvent, examplePullRequestOpenedEvent } from '../fixtures.js'
+import {
+  computePullRequestClosedMetrics,
+  computePullRequestOpenedMetrics,
+  computePullRequestReadyForReviewMetrics,
+} from '../../src/pullRequest/metrics.js'
+import {
+  examplePullRequestClosedEvent,
+  examplePullRequestOpenedEvent,
+  examplePullRequestReadyForReviewEvent,
+} from '../fixtures.js'
 import { examplePullRequestFirstCommit } from './fixtures/getPullRequest.js'
 
 test('computePullRequestOpenedMetrics', () => {
@@ -12,6 +20,11 @@ test('computePullRequestClosedMetrics', () => {
   const series = computePullRequestClosedMetrics(examplePullRequestClosedEvent, undefined, {
     sendPullRequestLabels: true,
   })
+  expect(series).toMatchSnapshot()
+})
+
+test('computePullRequestReadyForReviewMetrics', () => {
+  const series = computePullRequestReadyForReviewMetrics(examplePullRequestReadyForReviewEvent)
   expect(series).toMatchSnapshot()
 })
 

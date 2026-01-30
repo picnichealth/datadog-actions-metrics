@@ -4,6 +4,7 @@ import { run } from '../src/run.js'
 import {
   examplePullRequestClosedEvent,
   examplePullRequestOpenedEvent,
+  examplePullRequestReadyForReviewEvent,
   exampleWorkflowRunCompletedEvent,
 } from './fixtures.js'
 import { exampleGetPullRequestQuery } from './pullRequest/fixtures/getPullRequest.js'
@@ -105,6 +106,37 @@ test('pull_request_opened', async () => {
     {
       eventName: 'pull_request',
       payload: examplePullRequestOpenedEvent,
+      repo: { owner: 'Codertocat', repo: 'Hello-World' },
+    },
+    {
+      collectJobMetrics: false,
+      collectStepMetrics: false,
+      preferDistributionWorkflowRunMetrics: false,
+      preferDistributionJobMetrics: false,
+      preferDistributionStepMetrics: false,
+      sendPullRequestLabels: false,
+    },
+  )
+  expect(metricsClient.submitMetrics).toHaveBeenCalledTimes(2)
+  expect(metricsClient.submitMetrics.mock.calls).toMatchSnapshot()
+})
+
+test('pull_request_ready_for_review', async () => {
+  const octokitMock = {
+    rest: {
+      rateLimit: {
+        get: vi.fn().mockResolvedValue(exampleRateLimitResponse),
+      },
+    },
+  }
+
+  await run(
+    metricsClient,
+    octokitMock as unknown as Octokit,
+    octokitMock as unknown as Octokit,
+    {
+      eventName: 'pull_request',
+      payload: examplePullRequestReadyForReviewEvent,
       repo: { owner: 'Codertocat', repo: 'Hello-World' },
     },
     {

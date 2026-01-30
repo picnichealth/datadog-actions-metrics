@@ -524,6 +524,249 @@ exports[`pull_request_opened 1`] = `
 ]
 `;
 
+exports[`pull_request_ready_for_review 1`] = `
+[
+  [
+    [
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.total",
+        "points": [
+          [
+            1557933678,
+            1,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "count",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.since_opened_seconds",
+        "points": [
+          [
+            1557933678,
+            45,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.commits",
+        "points": [
+          [
+            1557933678,
+            1,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "count",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.changed_files",
+        "points": [
+          [
+            1557933678,
+            1,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "count",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.additions",
+        "points": [
+          [
+            1557933678,
+            1,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "count",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.pull_request_ready_for_review.deletions",
+        "points": [
+          [
+            1557933678,
+            1,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "sender:Codertocat",
+          "sender_type:User",
+          "user:Codertocat",
+          "pull_request_number:2",
+          "draft:false",
+          "base_ref:master",
+          "head_ref:changes",
+        ],
+        "type": "count",
+      },
+    ],
+    "pull request",
+  ],
+  [
+    [
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.remaining",
+        "points": [
+          [
+            1445412480,
+            3999,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:core",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.limit",
+        "points": [
+          [
+            1445412480,
+            5000,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:core",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.remaining",
+        "points": [
+          [
+            1445412480,
+            999,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:search",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.limit",
+        "points": [
+          [
+            1445412480,
+            6000,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:search",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.remaining",
+        "points": [
+          [
+            1445412480,
+            4999,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:graphql",
+        ],
+        "type": "gauge",
+      },
+      {
+        "host": "github.com",
+        "metric": "github.actions.api_rate_limit.limit",
+        "points": [
+          [
+            1445412480,
+            7000,
+          ],
+        ],
+        "tags": [
+          "repository_owner:Codertocat",
+          "repository_name:Hello-World",
+          "resource:graphql",
+        ],
+        "type": "gauge",
+      },
+    ],
+    "rate-limit",
+  ],
+]
+`;
+
 exports[`workflow_run 1`] = `
 [
   [

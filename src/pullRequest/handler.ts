@@ -8,6 +8,7 @@ import {
   computePullRequestClosedMetrics,
   computePullRequestDequeuedMetrics,
   computePullRequestOpenedMetrics,
+  computePullRequestReadyForReviewMetrics,
 } from './metrics.js'
 
 type Inputs = {
@@ -43,6 +44,10 @@ export const handlePullRequest = async (
       computePullRequestClosedMetrics(e, pullRequestFirstCommit, inputs),
       'pull request',
     )
+  }
+
+  if (e.action === 'ready_for_review') {
+    return await metricsClient.submitMetrics(computePullRequestReadyForReviewMetrics(e), 'pull request')
   }
 
   if (e.action === 'dequeued') {

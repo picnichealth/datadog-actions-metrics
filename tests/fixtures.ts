@@ -1,6 +1,11 @@
 import fs from 'node:fs/promises'
 import type { WebhookDefinition } from '@octokit/webhooks-examples'
-import type { PullRequestClosedEvent, PullRequestOpenedEvent, WorkflowRunCompletedEvent } from '@octokit/webhooks-types'
+import type {
+  PullRequestClosedEvent,
+  PullRequestOpenedEvent,
+  PullRequestReadyForReviewEvent,
+  WorkflowRunCompletedEvent,
+} from '@octokit/webhooks-types'
 
 const examples = (
   JSON.parse(
@@ -24,6 +29,15 @@ export const examplePullRequestOpenedEvent: PullRequestOpenedEvent = (() => {
     }
   }
   throw new Error(`no example of PullRequestOpenedEvent`)
+})()
+
+export const examplePullRequestReadyForReviewEvent: PullRequestReadyForReviewEvent = (() => {
+  for (const example of examples) {
+    if ('pull_request' in example && 'action' in example && example.action === 'ready_for_review') {
+      return example
+    }
+  }
+  throw new Error(`no example of PullRequestReadyForReviewEvent`)
 })()
 
 export const exampleWorkflowRunCompletedEvent: WorkflowRunCompletedEvent = (() => {

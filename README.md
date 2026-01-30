@@ -58,13 +58,14 @@ Here is an example of screenshot in Datadog.
 You can analyze your development activity such as number of merged pull requests.
 It helps the continuous process improvement of your team.
 
-To collect the metrics when a pull request is opened, closed or merged into main:
+To collect the metrics when a pull request is opened, ready for review, closed or merged into main:
 
 ```yaml
 on:
   pull_request:
     types:
       - opened
+      - ready_for_review
       - closed
   push:
     branches:
@@ -295,6 +296,35 @@ It has the following tags:
 - `user`
 - `pull_request_number`
 - `draft` = `true` or `false`
+- `base_ref`
+- `head_ref`
+
+### Pull request (ready_for_review)
+
+This action sends the following metrics on `ready_for_review` type.
+
+- `github.actions.pull_request_ready_for_review.total`
+  - Total ready_for_review events (count)
+- `github.actions.pull_request_ready_for_review.since_opened_seconds`
+  - Time from a pull request is opened to marked ready for review (gauge)
+- `github.actions.pull_request_ready_for_review.commits`
+  - Number of commits in a pull request (count)
+- `github.actions.pull_request_ready_for_review.changed_files`
+  - Number of changed files in a pull request (count)
+- `github.actions.pull_request_ready_for_review.additions`
+  - Number of added lines in a pull request (count)
+- `github.actions.pull_request_ready_for_review.deletions`
+  - Number of deleted lines in a pull request (count)
+
+It has the following tags:
+
+- `repository_owner`
+- `repository_name`
+- `sender`
+- `sender_type` = either `Bot`, `User` or `Organization`
+- `user`
+- `pull_request_number`
+- `draft` = always `false` (the PR is no longer a draft)
 - `base_ref`
 - `head_ref`
 

@@ -4,6 +4,7 @@ import type {
   PullRequestDequeuedEvent,
   PullRequestEvent,
   PullRequestOpenedEvent,
+  PullRequestReadyForReviewEvent,
 } from '@octokit/webhooks-types'
 import type { PullRequestFirstCommit } from '../queries/getPullRequest.js'
 
@@ -155,6 +156,55 @@ export const computePullRequestClosedMetrics = (
   }
 
   return series
+}
+
+export const computePullRequestReadyForReviewMetrics = (e: PullRequestReadyForReviewEvent): v1.Series[] => {
+  const tags = computeCommonTags(e)
+  const t = unixTime(e.pull_request.updated_at)
+  return [
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.total',
+      type: 'count',
+      points: [[t, 1]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.since_opened_seconds',
+      type: 'gauge',
+      points: [[t, t - unixTime(e.pull_request.created_at)]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.commits',
+      type: 'count',
+      points: [[t, e.pull_request.commits]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.changed_files',
+      type: 'count',
+      points: [[t, e.pull_request.changed_files]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.additions',
+      type: 'count',
+      points: [[t, e.pull_request.additions]],
+    },
+    {
+      host: 'github.com',
+      tags,
+      metric: 'github.actions.pull_request_ready_for_review.deletions',
+      type: 'count',
+      points: [[t, e.pull_request.deletions]],
+    },
+  ]
 }
 
 export const computePullRequestDequeuedMetrics = (e: PullRequestDequeuedEvent): v1.Series[] => {

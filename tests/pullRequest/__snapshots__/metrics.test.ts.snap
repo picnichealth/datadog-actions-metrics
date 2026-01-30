@@ -460,3 +460,140 @@ exports[`computePullRequestOpenedMetrics 1`] = `
   },
 ]
 `;
+
+exports[`computePullRequestReadyForReviewMetrics 1`] = `
+[
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.total",
+    "points": [
+      [
+        1557933678,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "count",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.since_opened_seconds",
+    "points": [
+      [
+        1557933678,
+        45,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "gauge",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.commits",
+    "points": [
+      [
+        1557933678,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "count",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.changed_files",
+    "points": [
+      [
+        1557933678,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "count",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.additions",
+    "points": [
+      [
+        1557933678,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "count",
+  },
+  {
+    "host": "github.com",
+    "metric": "github.actions.pull_request_ready_for_review.deletions",
+    "points": [
+      [
+        1557933678,
+        1,
+      ],
+    ],
+    "tags": [
+      "repository_owner:Codertocat",
+      "repository_name:Hello-World",
+      "sender:Codertocat",
+      "sender_type:User",
+      "user:Codertocat",
+      "pull_request_number:2",
+      "draft:false",
+      "base_ref:master",
+      "head_ref:changes",
+    ],
+    "type": "count",
+  },
+]
+`;
